@@ -1,0 +1,35 @@
+{
+    "name": "Read Only Twitter",
+    "version": "1.0.1",
+    "description": "Enhance your Twitter experience by preventing yourself from actually interacting.",
+    "manifest_version": 2,
+    "permissions": [
+        "storage"
+    ],
+    "options_ui": {
+        "page": "readOnlyTwitterOptions.html",
+        "open_in_tab": false
+    },
+    "browser_action": {
+        "default_popup": "readOnlyTwitterOptions.html",
+        "default_icon": {
+            "128": "icons/ReadOnlyTwitter128.png",
+            "512": "icons/ReadOnlyTwitter.png"
+        }
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://twitter.com/*"
+            ],
+            "js": [
+                "readOnlyTwitter.js"
+            ]
+        }
+    ],
+    "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com https://www.googletagmanager.com; object-src 'self'",
+    "icons": {
+        "128": "icons/ReadOnlyTwitter128.png",
+        "512": "icons/ReadOnlyTwitter.png"
+    }
+}

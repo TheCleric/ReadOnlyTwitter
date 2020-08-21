@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C2V3XJC14E"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-C2V3XJC14E');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/4.0.1/mustache.min.js"
+        integrity="sha512-6AXIWogbKpsHvoZJrJtHpIYES4wP8czSj0zk7ZfwOYS8GWYFNSykwdfapt7yQc4ikZytemBu+QyVObzBHJMwYg=="
+        crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            min-width: 300px;
+        }
+
+        #options {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        #options>div {
+            width: 100%;
+            margin-bottom: 25px;
+            margin-left: 15px;
+        }
+
+        #options label {
+            margin-left: 25px;
+        }
+
+        .template {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="options">
+    </div>
+    <hr />
+    <div style="font-size: x-small;">
+        Icon made with icons from <a href="https://icons8.com/">icons8.com</a>
+    </div>
+    <div id="switch-options-template" class="template">
+        <input type="checkbox" id="{{id}}" aria-checked="{{value}}" {{checked}} />
+        <label for="{{id}}">{{label}}</label>
+    </div>
+    <script src="readOnlyTwitterOptions.js"></script>
+</body>
+
+</html>
