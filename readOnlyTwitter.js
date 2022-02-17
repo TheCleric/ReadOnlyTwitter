@@ -19,6 +19,8 @@ const makeReadOnly = (options) => {
     enableDisableTwitterButton(options.disableComments, '[data-testid="reply"]');
     enableDisableTwitterButton(options.disableRetweets, '[data-testid="retweet"]');
     enableDisableTwitterButton(options.disableLikes, '[data-testid="like"]');
+
+    enableDisableTwitterButton(options.disableOnTweetDeck, 'li.tweet-action-item, li.tweet-detail-action-item');
 };
 
 const enableDisableTwitterButton = (disable, domQuery) => {
@@ -38,6 +40,7 @@ const disableTwitterButton = (domQuery) => {
             cloned.setAttribute('ignore', 'true');
             if (cloned.childElementCount > 0) {
                 deepStyle(cloned.children[0], 'color', '#555555');
+                deepStyle(cloned.children[0], 'pointer-events', 'none');
             }
             cloned.classList.add(['clone']);
             button.classList.add(['cloned']);
@@ -126,7 +129,9 @@ chrome.storage.local.get(['options'], (result) => {
         disableRetweets: true,
         disableRetweetsWithComments: true,
         disableTweets: true,
-        disableDirectMessages: true,
+        disableDirectMessages: false,
+
+        disableOnTweetDeck: false,
     };
 
     if (result.options) {

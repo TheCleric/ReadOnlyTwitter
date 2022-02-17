@@ -5,6 +5,8 @@ const defaultOptions = {
     disableRetweetsWithComments: true,
     disableTweets: true,
     disableDirectMessages: true,
+
+    disableOnTweetDeck: true
 };
 
 const addSwitchOption = (id, value, label, callback) => {
@@ -45,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
         addSwitchOption("disable-retweets-with-comments", options.disableRetweetsWithComments, "Disable Retweets With Comments", (evt) => { updateOption('disableRetweetsWithComments', evt.target.checked); });
         addSwitchOption("disable-tweets", options.disableTweets, "Disable Tweets", (evt) => { updateOption('disableTweets', evt.target.checked); });
         addSwitchOption("disable-dms", options.disableDirectMessages, "Disable Direct Messages", (evt) => { updateOption('disableDirectMessages', evt.target.checked); });
+
+        addSwitchOption("disable-on-tweetdeck", options.disableOnTweetDeck, "Disable on Tweetdeck", (evt) => { updateOption('disableOnTweetDeck', evt.target.checked); });
 
         Array.from(document.querySelector('.mdc-switch') || []).forEach(sw => {
             new mdc.switchControl.MDCSwitch(sw);
